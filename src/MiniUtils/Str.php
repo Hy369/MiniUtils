@@ -48,4 +48,39 @@ class Str
         }
         return $result;
     }
+
+    /**
+     * 转换 Unicode 为 UTF-8 编码
+     *
+     * @param string $str 需要转码的字符串
+     * @param string $prefix 转码字符前缀
+     * @param string $suffix 转码字符后缀
+     *
+     * @return string
+     */
+    public static function unicodeToUtf8($str, $prefix = '\\u', $suffix = '')
+    {
+        $pattern = sprintf('~%s(%s)%s~', addslashes($prefix), '[A-Ea-e\d]+', addslashes($suffix));
+        $str = preg_replace_callback($pattern, function ($item) {
+            $bin = base_convert($item[1], 16, 2);
+            $group = ceil(strlen($bin) / 6);
+            if ($group === 1) {
+                return chr($item[1]);
+            }
+            $bin = str_pad($bin, $group * 6, '0', STR_PAD_LEFT);
+            $bins = str_split($bin, 6);
+            $result = '';
+            foreach ($bins as $key => $val) {
+                if ($key === 0) {
+                    $tag = str_pad(str_repeat('1', $group), 8, '0');
+                } else {
+                    $tag = str_pad('1', 8, '0');
+                }
+                $tag = (int)base_convert($tag, 2, 10);
+                $result .= chr(base_convert($val, 2, 10) | $tag);
+            }
+            return $result;
+        }, $str);
+        return $str;
+    }
 }

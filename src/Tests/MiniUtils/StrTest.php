@@ -24,4 +24,12 @@ class StrTest extends TestCase
         $this->assertEquals('\u9fa5', Str::utf8ToUnicode('龥'));
         $this->assertEquals('a\u4e003\u9fa5*', Str::utf8ToUnicode('a一3龥*'));
     }
+
+    public function testUnicodeToUtf8()
+    {
+        $this->assertEquals('一', Str::unicodeToUtf8('\u4e00'));
+        $this->assertEquals('1', Str::unicodeToUtf8('1'));
+        $this->assertEquals('1一', Str::unicodeToUtf8('1\u4e00'));
+        $this->assertEquals('1一', Str::unicodeToUtf8('1\x{4e00}', '\x{', '}'));
+    }
 }
