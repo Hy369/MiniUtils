@@ -14,7 +14,7 @@
         }
     ],
     "require": {
-        "php": "^7.0"
+        "php": ">=7.0"
     },
     "suggest": {
         "symfony/polyfill-mbstring": "For UTF-8 if ext-mbstring disabled"
