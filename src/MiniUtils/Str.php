@@ -13,7 +13,7 @@ namespace MiniUtils;
  * 字符串类方法
  *
  * @since 1.0
- * @author Hylin Yin <hylin@lixueweb.com>
+ * @author Hylin Yin <hylin@iphp8.com>
  */
 class Str
 {
