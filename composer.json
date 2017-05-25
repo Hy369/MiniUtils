@@ -1,0 +1,33 @@
+{
+    "name": "hylin/miniutils",
+    "type": "library",
+    "description": "A collection of useful functions.",
+    "keywords": [
+        "functions"
+    ],
+    "homepage": "https://www.iphp8.com",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Hylin Yin",
+            "email": "hylin@iphp8.com"
+        }
+    ],
+    "require": {
+        "php": "^7.0"
+    },
+    "suggest": {
+        "symfony/polyfill-mbstring": "For UTF-8 if ext-mbstring disabled"
+    },
+    "autoload": {
+        "psr-4": {
+            "MiniUtils\\": "src/MiniUtils/"
+        }
+    },
+    "minimum-stability": "dev",
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    }
+}
