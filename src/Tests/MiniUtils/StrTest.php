@@ -31,5 +31,6 @@ class StrTest extends TestCase
         $this->assertEquals('1', Str::unicodeToUtf8('1'));
         $this->assertEquals('1一', Str::unicodeToUtf8('1\u4e00'));
         $this->assertEquals('1一', Str::unicodeToUtf8('1\x{4e00}', '\x{', '}'));
+        $this->assertEquals('生', Str::unicodeToUtf8('&#29983;', '&#', ';'));
     }
 }
