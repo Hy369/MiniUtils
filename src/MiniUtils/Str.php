@@ -83,4 +83,19 @@ class Str
         }, $str);
         return $str;
     }
+
+    /**
+     * 替换文件类字符串后缀
+     *
+     * @param string $str
+     * @param string $suffix
+     *
+     * @return string
+     */
+    public static function replaceSuffix($str, $suffix)
+    {
+        $len = strlen(strrchr($str, '.'));
+        $len && ($str = substr($str, 0, -$len));
+        return $str . $suffix;
+    }
 }
