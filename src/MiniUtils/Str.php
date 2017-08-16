@@ -10,7 +10,7 @@
 namespace MiniUtils;
 
 /**
- * 字符串类方法
+ * The functions of string.
  *
  * @since 1.0
  * @author Hylin Yin <hylin@iphp8.com>
@@ -18,12 +18,12 @@ namespace MiniUtils;
 class Str
 {
     /**
-     * 转换 UTF-8 为 Unicode 编码
+     * Converts UTF-8 to unicode.
      *
-     * @param string $str 需要转码的字符串
-     * @param string $prefix 转码字符前缀
-     * @param string $suffix 转码字符后缀
-     * @param bool $reserveAscii 是否保留 ASCII 编码
+     * @param string $str The source string.
+     * @param string $prefix The prefix of unicode.
+     * @param string $suffix The suffix of unicode.
+     * @param bool $reserveAscii Whether the asscii character is converted.
      *
      * @return string
      */
@@ -50,11 +50,11 @@ class Str
     }
 
     /**
-     * 转换 Unicode 为 UTF-8 编码
+     * Converts unicode to UTF-8.
      *
-     * @param string $str 需要转码的字符串
-     * @param string $prefix 转码字符前缀
-     * @param string $suffix 转码字符后缀
+     * @param string $str The source string.
+     * @param string $prefix The prefix of unicode.
+     * @param string $suffix The suffix of unicode.
      *
      * @return string
      */
@@ -85,7 +85,7 @@ class Str
     }
 
     /**
-     * 替换文件类字符串后缀
+     * Replaces suffix with new suffix.
      *
      * @param string $str
      * @param string $suffix
