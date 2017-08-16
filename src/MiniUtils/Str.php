@@ -60,7 +60,9 @@ class Str
      */
     public static function unicodeToUtf8($str, $prefix = '\\u', $suffix = '')
     {
-        $pattern = sprintf('~%s(%s)%s~', addslashes($prefix), '[A-Fa-f\d]{1,4}', addslashes($suffix));
+        $pattern = $suffix ? '[A-Fa-f\d]+' : '[A-Fa-f\d]{1,5}';
+        $pattern = sprintf('~%s(%s)%s~', addslashes($prefix), $pattern, addslashes($suffix));
+
         $str = preg_replace_callback($pattern, function ($item) use ($prefix) {
             $bin = base_convert($item[1], $prefix === '&#' ? 10 : 16, 2);
             $group = ceil(strlen($bin) / 6);
