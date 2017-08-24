@@ -29,7 +29,7 @@ class StrTest extends TestCase
     {
         $this->assertEquals('一', Str::unicodeToUtf8('\u4e00'));
         $this->assertEquals('1', Str::unicodeToUtf8('1'));
-        $this->assertEquals('ÿ', Str::unicodeToUtf8('\uff'));
+        $this->assertEquals('~', Str::unicodeToUtf8('\u7e'));
         $this->assertEquals('1一', Str::unicodeToUtf8('1\u4e00'));
         $this->assertEquals('1一', Str::unicodeToUtf8('1\x{4e00}', '\x{', '}'));
         $this->assertEquals('生', Str::unicodeToUtf8('&#29983;', '&#', ';'));
