@@ -64,11 +64,13 @@ class Str
         $pattern = sprintf('~%s(%s)%s~', addslashes($prefix), $pattern, addslashes($suffix));
 
         $str = preg_replace_callback($pattern, function ($item) use ($prefix) {
-            $bin = base_convert($item[1], $prefix === '&#' ? 10 : 16, 2);
-            $group = ceil(strlen($bin) / 6);
-            if ($group === 1) {
-                return chr($item[1]);
+            $dec = $prefix === '&#' ? $item[1] : base_convert($item[1], 16, 10);
+            if ($dec < 128) {
+                return chr($dec);
             }
+
+            $bin = base_convert($dec, 10, 2);
+            $group = ceil(strlen($bin) / 6);
             $bin = str_pad($bin, $group * 6, '0', STR_PAD_LEFT);
             $bins = str_split($bin, 6);
             $result = '';
