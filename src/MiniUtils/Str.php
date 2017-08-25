@@ -102,4 +102,21 @@ class Str
         $len && ($str = substr($str, 0, -$len));
         return $str . $suffix;
     }
+
+    /**
+     * Gets the suffix of string.
+     * Empty string will be given if the suffix does not exist.
+     *
+     * @param string $str
+     * @param bool $withDot
+     *
+     * @return string
+     */
+    public static function getSuffix($str, $withDot = false)
+    {
+        $suffix = strval(strrchr($str, '.'));
+        !$withDot && ($suffix = ltrim($suffix, '.'));
+
+        return $suffix;
+    }
 }

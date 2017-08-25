@@ -42,4 +42,27 @@ class StrTest extends TestCase
         $this->assertEquals('hylin.yin.doc', Str::replaceSuffix('hylin.yin.txt', '.doc'));
         $this->assertEquals('hylin.doc.doc', Str::replaceSuffix('hylin.doc.txt', '.doc'));
     }
+
+    /**
+     * @param $string
+     * @param $withDot
+     * @param $expected
+     *
+     * @dataProvider getSuffixProvider
+     */
+    public function testGetSuffix($string, $withDot, $expected)
+    {
+        $this->assertEquals($expected, Str::getSuffix($string, $withDot));
+    }
+
+    public function getSuffixProvider()
+    {
+        return [
+            ['foo.bar', false, 'bar'],
+            ['foo.bar', true, '.bar'],
+            ['foo', false, ''],
+            ['foo', true, ''],
+            ['foo.bar.foobar', true, '.foobar'],
+        ];
+    }
 }
