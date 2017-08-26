@@ -13,7 +13,7 @@ namespace MiniUtils\Tests;
 use MiniUtils\MuString;
 use PHPUnit\Framework\TestCase;
 
-class StrTest extends TestCase
+class MuStringTest extends TestCase
 {
     public function testUtf8ToUnicode()
     {

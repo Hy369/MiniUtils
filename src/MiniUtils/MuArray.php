@@ -7,6 +7,7 @@
  * @since 1.0
  * @author Hylin Yin <hylin@iphp8.com>
  */
+
 namespace MiniUtils;
 
 /**
