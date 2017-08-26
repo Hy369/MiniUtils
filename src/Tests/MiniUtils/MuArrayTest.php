@@ -10,21 +10,21 @@
 
 namespace MiniUtils\Tests;
 
-use MiniUtils\Arr;
+use MiniUtils\MuArray;
 use PHPUnit\Framework\TestCase;
 
-class ArrTest extends TestCase
+class MuArrayTest extends TestCase
 {
     public function testKeyMap()
     {
         $array = ['foo', 'bar'];
-        Arr::keyMap($array, function ($val, $key) {
+        MuArray::keyMap($array, function ($val, $key) {
             return $val . $key;
         });
         $this->assertEquals($array, ['foo0' => 'foo', 'bar1' => 'bar']);
 
         $array = ['foo', 'bar'];
-        Arr::keyMap($array, function (&$val, $key) {
+        MuArray::keyMap($array, function (&$val, $key) {
             $val = $val . 'bar';
             return $key;
         });

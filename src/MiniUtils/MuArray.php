@@ -15,7 +15,7 @@ namespace MiniUtils;
  * @since 1.0
  * @author Hylin Yin <hylin@iphp8.com>
  */
-class Arr
+class MuArray
 {
     /**
      * Apply a user function to every member of an array key.

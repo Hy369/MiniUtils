@@ -15,7 +15,7 @@ namespace MiniUtils;
  * @since 1.0
  * @author Hylin Yin <hylin@iphp8.com>
  */
-class Str
+class MuString
 {
     /**
      * Converts UTF-8 to unicode.

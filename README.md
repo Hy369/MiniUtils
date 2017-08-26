@@ -16,7 +16,7 @@ composer require hylin/miniutils
 
 ## Usage
 
-### Str
+### MuString
 
-### Arr
+### MuArray
 
