@@ -21,7 +21,8 @@ composer require hylin/miniutils
 #### utf8ToUnicode
 
 ```
-string utf8ToUnicode(string $str[, string $prefix = '\\u'[, string $suffix = ''[, bool $reserveAscii = true]]])
+string utf8ToUnicode(string $str[, string $prefix = '\\u'[, string $suffix = ''[,
+bool $reserveAscii = true]]])
 ```
 
 #### unicodeToUtf8
@@ -48,4 +49,12 @@ string getSuffix($str[, $withDot = false])
 
 ```
 void function keyMap(array &$array, callable $callback)
+```
+
+### MuDate
+
+#### timestampToUtc
+
+```
+string timestampToUtc(int $timestamp[, bool $minTime = false])
 ```
