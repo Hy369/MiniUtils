@@ -18,5 +18,21 @@ composer require hylin/miniutils
 
 ### MuString
 
+#### utf8ToUnicode
+
+> string utf8ToUnicode(string $str[, string $prefix = '\\u'[, string $suffix = ''[, bool $reserveAscii = true]]])
+
+#### unicodeToUtf8
+
+> string unicodeToUtf8(string $str[, string $prefix = '\\u'[, string $suffix = '']])
+
+#### replaceSuffix
+
+> string replaceSuffix(string $str, string $suffix)
+
+#### getSuffix
+
+> string getSuffix($str[, $withDot = false])
+
 ### MuArray
 
