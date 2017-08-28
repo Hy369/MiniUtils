@@ -20,10 +20,32 @@ composer require hylin/miniutils
 
 #### utf8ToUnicode
 
+Convert character from UTF-8 to Unicode.
+
+##### Description
+
 ```
 string utf8ToUnicode(string $str[, string $prefix = '\\u'[, string $suffix = ''[,
 bool $reserveAscii = true]]])
 ```
+
+##### Parameters
+
+**str**
+
+The string to be converted.
+
+**prefix**
+
+The prefix of string to be converted, the default is \\u
+
+**suffix**
+
+The suffix of string to be converted, the default is empty string.
+
+**reserveAscii**
+
+Whether the ascii character will be converted or not.
 
 #### unicodeToUtf8
 
