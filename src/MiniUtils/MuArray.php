@@ -34,4 +34,17 @@ class MuArray
         });
         $array = $newArr;
     }
+
+    /**
+     * Merge one or more arrays to array1 by reference.
+     *
+     * @param $array1
+     * @param array ...$array2
+     */
+    public static function merge(&$array1, ...$array2)
+    {
+        foreach ($array2 as $item) {
+            $array1 = array_merge($array1, $item);
+        }
+    }
 }

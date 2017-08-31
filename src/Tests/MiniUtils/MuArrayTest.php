@@ -30,4 +30,44 @@ class MuArrayTest extends TestCase
         });
         $this->assertEquals($array, ['foobar', 'barbar']);
     }
+
+    /**
+     * @param array $expected
+     * @param array $array1
+     * @param array ...$array2
+     *
+     * @dataProvider mergeProvider
+     */
+    public function testMerge($expected, $array1, ...$array2)
+    {
+        MuArray::merge($array1, ...$array2);
+        $this->assertEquals($expected, $array1);
+    }
+
+    public function mergeProvider()
+    {
+        return [
+            [
+                ['foo', 'bar'],
+                ['foo'],
+                ['bar'],
+            ],
+            [
+                ['foo', 'bar'],
+                [2 => 'foo'],
+                [3 => 'bar'],
+            ],
+            [
+                ['bar' => 'foo', 'foo' => 'foobar'],
+                ['bar' => 'bar'],
+                ['bar' => 'foo', 'foo' => 'foobar'],
+            ],
+            [
+                ['bar' => 'barfoo', 'foo' => 'foobar', 'foobar' => 'foobar'],
+                ['bar' => 'bar'],
+                ['bar' => 'foo', 'foo' => 'foobar'],
+                ['bar' => 'barfoo', 'foobar' => 'foobar'],
+            ],
+        ];
+    }
 }
