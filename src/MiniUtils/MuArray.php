@@ -59,9 +59,11 @@ class MuArray
     public static function multiSort(&$array, $key, $order = SORT_ASC, $maintainIndex = false)
     {
         $func = $maintainIndex ? 'uasort' : 'usort';
+
         $func($array, function ($val1, $val2) use ($key, $order) {
             if ($val1[$key] > $val2[$key]) {
                 return $order == SORT_ASC ? 1 : -1;
+
             } elseif ($val1[$key] < $val2[$key]) {
                 return $order == SORT_ASC ? -1 : 1;
             }
