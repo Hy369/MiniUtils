@@ -70,4 +70,63 @@ class MuArrayTest extends TestCase
             ],
         ];
     }
+
+    /**
+     * @param array $expected
+     * @param array $array
+     * @param string $key
+     * @param int $order
+     * @param bool $maintainIndex
+     *
+     * @dataProvider multiSortProvider
+     */
+    public function testMultiSort($expected, $array, $key, $order = SORT_ASC, $maintainIndex = false)
+    {
+        MuArray::multiSort($array, $key, $order, $maintainIndex);
+        $this->assertEquals($expected, $array);
+    }
+
+    public function multiSortProvider()
+    {
+        return [
+            [[
+                ['name' => 'foobar', 'age' => 3],
+                ['name' => 'foo', 'age' => 5],
+                ['name' => 'bar', 'age' => 6],
+            ], [
+                ['name' => 'foo', 'age' => 5],
+                ['name' => 'bar', 'age' => 6],
+                ['name' => 'foobar', 'age' => 3],
+            ], 'age'],
+            [[
+                ['name' => 'bar', 'age' => 6],
+                ['name' => 'foo', 'age' => 5],
+                ['name' => 'foobar', 'age' => 3],
+            ], [
+                ['name' => 'foo', 'age' => 5],
+                ['name' => 'bar', 'age' => 6],
+                ['name' => 'foobar', 'age' => 3],
+            ], 'age', SORT_DESC],
+            [[
+                1 => ['name' => 'bar', 'age' => 6],
+                0 => ['name' => 'foo', 'age' => 5],
+                2 => ['name' => 'foobar', 'age' => 3],
+            ], [
+                ['name' => 'foo', 'age' => 5],
+                ['name' => 'bar', 'age' => 6],
+                ['name' => 'foobar', 'age' => 3],
+            ], 'age', SORT_DESC, true],
+            [[
+                1 => ['name' => 'bar', 'age' => 6],
+                0 => ['name' => 'foo', 'age' => 5],
+                2 => ['name' => 'foobar', 'age' => 3],
+                3 => ['name' => 'barfoo', 'age' => 3],
+            ], [
+                ['name' => 'foo', 'age' => 5],
+                ['name' => 'bar', 'age' => 6],
+                ['name' => 'foobar', 'age' => 3],
+                ['name' => 'barfoo', 'age' => 3],
+            ], 'age', SORT_DESC, true],
+        ];
+    }
 }
