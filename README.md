@@ -73,6 +73,18 @@ string getSuffix($str[, $withDot = false])
 void function keyMap(array &$array, callable $callback)
 ```
 
+#### merge
+
+```
+void merge(&$array1, ...$array2)
+```
+
+#### multiSort
+
+```
+void multiSort(&$array, $key[, $order = SORT_ASC[, $maintainIndex = false]])
+```
+
 ### MuDate
 
 #### timestampToUtc
