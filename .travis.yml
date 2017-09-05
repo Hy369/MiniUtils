@@ -8,6 +8,9 @@ cache:
   directories:
     - $HOME/vendor
 
+before_script:
+  - composer update
+
 script:
   - mkdir -p build/logs
   - vendor/bin/phpunit -v
